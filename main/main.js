@@ -1,4 +1,7 @@
-module.exports = function printInventory(products) {
+module.exports = function main(input) {
+    return printInventory(input);
+};
+function printInventory(input) {
     let productsOrders = CreateProductsOrders(CreateProductNameAndPrice(input), input);
     let total = CalculateTotal(productsOrders).toFixed(2);
     let printer = "***<store earning no money>Receipt ***\n";
@@ -8,9 +11,9 @@ module.exports = function printInventory(products) {
             if(productsOrders[i].Quantity > 1){ printer += " bottles";}
             else {printer += " bottle";}
         }
-        printer += ", Unit price: " + productsOrders[i].UnitPrice.toFixed(2) + " (yuan), Subtotal: " + productsOrders[i].Subtotal.toFixed(2) + "\n";
+        printer += ", Unit price: " + productsOrders[i].UnitPrice.toFixed(2) + " (yuan), Subtotal: " + productsOrders[i].Subtotal.toFixed(2) + " (yuan)\n";
     }
-    printer += "----------------------\n" + "Total: " + total + "(yuan)\n" + "**********************\n";
+    printer += "----------------------\n" + "Total: " + total + " (yuan)\n" + "**********************\n";
     return printer;
 };
 
